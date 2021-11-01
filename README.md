@@ -1,2 +1,2 @@
 # MySecond_project
-My project for learning git and github
+My project for learning git and github.
