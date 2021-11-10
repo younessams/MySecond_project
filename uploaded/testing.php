@@ -7,7 +7,7 @@
 		$files_error = $myfiles['error'];
 		$files_size = $myfiles['size'];
 
-		//array Uploaded files to temp errors.
+		//Uploaded array files to temp errors.
 		$uploadErrors = array(
     		'Uploaded file succesfully',
     		'The uploaded file exceeds the upload max filesize allowed.',
@@ -18,47 +18,50 @@
 		);
 		$extentions = array('jpg','jpeg','gif','png');
 		$count = count($myfiles['name']);
-		for($i=0;$i<$count;$i++){
-			$errors = array();
-			$tmp = explode('.', $files_name[$i]); // for nothing error in extentoin.
-			$ext = strtolower(end($tmp));
-
-			if($files_error[$i] == 0){
-				if(!in_array($ext, $extentions)):
-					$errors[] = "sorry! you cant upload this file extention";
-				endif;
-				if($files_size[$i] >= 500000){
-					$errors[] = 'Sorry! you cant upload file his size more than 500 kb';
-				}
-				// Uploade file if no has error.
-				if(empty($errors)){
-					$rand_name = 'youness_'.rand(0, 10000000000000). '.' .$ext;
-					move_uploaded_file($files_tmp[$i], $_SERVER['DOCUMENT_ROOT']."/ecommerce_app/images/".$rand_name);
-					echo 'file number '. ($i+1) . ' : ' . $uploadErrors[0]."<br />";
-				}else{
-					foreach ($errors as $error):
+		if($count > 10){
+			errMessage($uploadErrors[1],'false');
+		}else{
+			for($i=0;$i<$count;$i++){
+				$errors = array();
+				//$temp = explode('.', $files_name[$i]); // fro no error in ext
+				$ext = @strtolower(end(explode('.', $files_name[$i])));
+				$numfile = 'file number '. ($i+1) . ' : ';
+				if($files_error[$i] == 0){
+					if(!in_array($ext, $extentions)):
+						$errors[] = "sorry! you can't upload this file";
+					endif;
+					if($files_size[$i] >= 2000000){
+						$errors[] = $numfile . 'Sorry! you cant upload file his size more than 2mb';
+					}
+					// Upload file if no errors.
+					if(empty($errors)){
+						$rand_name = 'youness_'.rand(0, 999999999999). '.' .$ext;
+						move_uploaded_file($files_tmp[$i], getcwd()."/images/".$rand_name);
+						sucMessage($numfile . $uploadErrors[0]);
+					}else{
 						echo "<div class='alert alert-danger'>";
-						echo $error."<br />";
+						foreach ($errors as $error):
+							echo $error."<br />";
+						endforeach;
 						echo "</div>";
-					endforeach;
+					}
+				}else{
+					errMessage($uploadErrors[$files_error[$i]],'false');
 				}
-			}else{
-				$numerr = $files_error[$i];
-				echo $uploadErrors[$numerr];
 			}
 		}
 	}
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Uploaded files</title>
+	<title>uploaded files</title>
 </head>
 <body>
 	<form action="" method="POST" enctype="multipart/form-data">
 		<input type="file" name="my_work[]" multiple="multiple">
 		<input type="submit" value="Upload">
-	</form>	
+	</form>
+
 </body>
 </html>
