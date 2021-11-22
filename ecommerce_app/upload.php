@@ -1,4 +1,4 @@
-<?php
+<?php $noNavbar = ''; $pageTitle = "upload"; include "init.php";
 	if($_SERVER['REQUEST_METHOD'] =='POST'){
 		$myfiles = $_FILES['my_work'];
 		$files_name = $myfiles['name'];
@@ -52,12 +52,6 @@
 		}
 	}
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>uploaded files</title>
-</head>
-<body>
 	<form action="" method="POST" enctype="multipart/form-data">
 		<input type="file" name="my_work[]" multiple="multiple">
 		<input type="submit" value="Upload">
@@ -65,3 +59,5 @@
 
 </body>
 </html>
+
+<?php include $temp."footer.php"?>

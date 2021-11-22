@@ -1,0 +1,139 @@
+body {
+	font-size: 16px;
+	background-color: #86d5d31c;
+}
+
+/* Start Bootstrap Edits */
+
+/* start Navbar Styles */
+.navbar { 
+	background-color: #1777f3 !important;
+	padding: .3em 0;
+	margin: 0 0 5px 0;
+	min-height: 75px;
+}
+.navbar-brand {
+    padding-top: .6125rem;
+    padding-bottom: .6125rem;
+    margin-right: 2.5rem;
+    font-size: 1.50rem;
+}
+.nav-item {
+	margin-right: 2em;
+}
+.dropdown-menu[data-bs-popper]{
+    left: .5em;
+    margin-top: .98em;
+}
+.dropdown-menu{
+	background-color: #00dbff0d;
+	border-radius: 0;
+	border: none;
+	padding: 0;
+}
+.frmEdit{
+	margin: 0 15em;
+}
+.frmEdit i:not([type!=submit]) {
+    float: left !important;
+    position: relative !important;
+    top: 43px !important;
+    color: #6c757d !important;
+    left: 8px !important;
+}
+
+h1{
+	font-size: 53px;
+	font-family: bold;
+	color: #555;
+}
+
+/* End Navbar Styles */
+
+/* Start Bootstrap Edits */
+
+i[edit]:not([edit^=fa-submit]){
+    float:left;
+    position: relative;
+    top:43px;
+    right:20px;
+    color: #7e7d87fa;
+}
+i[edit^=fa-submit]{
+    float:left;
+    position: relative;
+    top: 0;
+    right: 31px;
+    font-size: 31px;
+}
+input:not([type^=submit]){
+    padding-left: 30px !important;
+}
+
+/* Start Styles form admin */.form-signin{
+	width: 360px;
+	margin: 100px auto;
+}
+.form-signin .mb-3{
+	color: #888;
+}
+.form-signin input{
+	margin-bottom: 10px;
+	padding-left: 30px;
+}
+.form-signin .form-control{
+	background-color: #e1d8d8;
+}
+/* End Styles form admin */
+
+/* errors start */
+
+.errs .alert {
+    margin: 25px 60px 0 60px;
+}
+
+/* errors end */
+
+.errs .alert .alert a .btn{
+	color: blueviolet;
+    font-style: italic;
+    font-size: larger;
+}
+
+.table>thead {
+    font-size: 25px;
+    font-style: italic;
+    color: #130e66;
+    background-color: #f7ee7b !important;
+}
+.table>tbody {
+    font-size: 19px;
+    color: #aeb907;
+    font-style: italic;
+}
+
+/* start style fontawesome */
+
+.login .fa-user-circle{
+	font-size: 130px;
+}
+.login .fa-lock, .login .fa-user{
+    float: left;
+    position: relative;
+    top: 26px;
+    left: 10px;
+    color: #6c757d;
+}
+
+/* start style add member */
+.container {
+    padding-bottom: 30px;
+}
+.frmEdit i{
+    padding-left: 30px !important;
+}
+
+/* start style fontawesome */
+
+
+
